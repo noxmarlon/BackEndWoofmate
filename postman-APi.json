@@ -1,0 +1,289 @@
+{
+    "info": {
+        "name": "Django API",
+        "_postman_id": "12345-67890-abcdef",
+        "description": "Colección de Postman para las rutas de la API de Django",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Register",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"testpassword\",\n    \"password2\": \"testpassword\",\n    \"email\": \"testuser@example.com\",\n    \"role\": 1\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/users/register/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "users",
+                        "register"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"testpassword\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/users/login/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "users",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Create Pet",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"petName\": \"Max\",\n    \"petType\": \"Dog\",\n    \"petAge\": 5,\n    \"petBreed\": \"Labrador\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/pets/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "pets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Pet",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"petName\": \"Max\",\n    \"petType\": \"Dog\",\n    \"petAge\": 6,\n    \"petBreed\": \"Golden Retriever\"\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/pets/1/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "pets",
+                        "1"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get All My Pets",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/pets/my-pets/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "pets",
+                        "my-pets"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Like Pet",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"like_type\": \"dogwalker_likes_pet\",\n    \"pet\": 1\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/matches/like/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "matches",
+                        "like"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Like Dogwalker",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"like_type\": \"dogowner_likes_dogwalker\",\n    \"liked_user\": 2\n}"
+                },
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/matches/like/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "matches",
+                        "like"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Matches",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{jwt_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/matches/matches/",
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000",
+                    "path": [
+                        "api",
+                        "matches",
+                        "matches"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
